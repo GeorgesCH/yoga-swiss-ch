@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useMultiTenantAuth } from './MultiTenantAuthProvider';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -53,6 +54,41 @@ export function OrgHierarchySwitcher() {
     hasPermission,
     getOrgContext 
   } = useMultiTenantAuth();
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  
+  // Sync organization selection with URL parameters
+  useEffect(() => {
+    const orgIdFromUrl = searchParams.get('org');
+    if (orgIdFromUrl && userOrgs.length > 0) {
+      const orgFromUrl = userOrgs.find(org => org.id === orgIdFromUrl);
+      if (orgFromUrl && (!currentOrg || currentOrg.id !== orgIdFromUrl)) {
+        console.log('[OrgHierarchySwitcher] Switching to org from URL:', orgFromUrl.name);
+        switchOrg(orgFromUrl.id);
+      }
+    } else if (!orgIdFromUrl && currentOrg && userOrgs.length > 0) {
+      // If no org in URL but we have a current org, add it to URL
+      setSearchParams(prev => {
+        const newParams = new URLSearchParams(prev);
+        newParams.set('org', currentOrg.id);
+        return newParams;
+      });
+    }
+  }, [searchParams, userOrgs, currentOrg, switchOrg, setSearchParams]);
+  
+  // Custom organization switching function that updates URL
+  const handleOrgSwitch = (orgId: string) => {
+    console.log('[OrgHierarchySwitcher] Switching to organization:', orgId);
+    switchOrg(orgId);
+    
+    // Update URL parameter
+    setSearchParams(prev => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set('org', orgId);
+      return newParams;
+    });
+  };
   
   const [searchQuery, setSearchQuery] = useState('');
   const [showCreateDialog, setShowCreateDialog] = useState(false);
@@ -154,6 +190,13 @@ export function OrgHierarchySwitcher() {
     if (result.org) {
       setShowCreateDialog(false);
       setNewOrgData({ name: '', slug: '', type: 'studio', parent_org_id: '' });
+      
+      // Update URL to include the new organization
+      setSearchParams(prev => {
+        const newParams = new URLSearchParams(prev);
+        newParams.set('org', result.org.id);
+        return newParams;
+      });
     } else if (result.error) {
       console.error('Organization creation failed:', result.error);
       // Handle specific error messages from backend
@@ -344,7 +387,7 @@ export function OrgHierarchySwitcher() {
                 filteredOrgs.map((org) => (
                   <DropdownMenuItem
                     key={org.id}
-                    onClick={() => switchOrg(org.id)}
+                    onClick={() => handleOrgSwitch(org.id)}
                     className={`p-3 ${currentOrg.id === org.id ? 'bg-accent' : ''}`}
                   >
                     <div className="flex items-center gap-3 w-full">
@@ -380,7 +423,7 @@ export function OrgHierarchySwitcher() {
                 {groupedOrgs.brands.map((brand) => (
                   <div key={brand.id}>
                     <DropdownMenuItem
-                      onClick={() => switchOrg(brand.id)}
+                      onClick={() => handleOrgSwitch(brand.id)}
                       className={`p-3 ${currentOrg.id === brand.id ? 'bg-accent' : ''}`}
                     >
                       <div className="flex items-center gap-3 w-full">
@@ -406,7 +449,7 @@ export function OrgHierarchySwitcher() {
                     {groupedOrgs.studios[brand.id]?.map((studio) => (
                       <DropdownMenuItem
                         key={studio.id}
-                        onClick={() => switchOrg(studio.id)}
+                        onClick={() => handleOrgSwitch(studio.id)}
                         className={`p-3 pl-8 ${currentOrg.id === studio.id ? 'bg-accent' : ''}`}
                       >
                         <div className="flex items-center gap-3 w-full">
@@ -436,7 +479,7 @@ export function OrgHierarchySwitcher() {
                     {groupedOrgs.studios.independent.map((studio) => (
                       <DropdownMenuItem
                         key={studio.id}
-                        onClick={() => switchOrg(studio.id)}
+                        onClick={() => handleOrgSwitch(studio.id)}
                         className={`p-3 ${currentOrg.id === studio.id ? 'bg-accent' : ''}`}
                       >
                         <div className="flex items-center gap-3 w-full">
