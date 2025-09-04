@@ -6,8 +6,8 @@ import {
   Trash2, Eye, CheckCircle, AlertTriangle, Calendar as CalendarIcon,
   Download, Upload, Settings, AlertCircle
 } from 'lucide-react';
-import { useAuth } from '../auth/AuthProvider';
-import { peopleService, PeopleService, type StaffMember } from '../../utils/supabase/people-service';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
+import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
@@ -24,7 +24,7 @@ import { Textarea } from '../ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 
 export function StaffManagement() {
-  const { session } = useAuth();
+  const { session } = useMultiTenantAuth();
   const [staff, setStaff] = useState<StaffMember[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

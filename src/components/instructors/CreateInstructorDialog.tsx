@@ -9,7 +9,7 @@ import { Checkbox } from '../ui/checkbox';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { useAuth } from '../auth/AuthProvider';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
 import { peopleService, PeopleService } from '../../utils/supabase/people-service';
 import { 
   UserPlus, Mail, Phone, Globe, Award, 
@@ -22,7 +22,7 @@ interface CreateInstructorDialogProps {
 }
 
 export function CreateInstructorDialog({ onClose, onComplete }: CreateInstructorDialogProps) {
-  const { session } = useAuth();
+  const { session } = useMultiTenantAuth();
   const [step, setStep] = useState<'basic' | 'qualifications' | 'complete'>('basic');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

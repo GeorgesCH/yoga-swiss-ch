@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, UserCog, UserCheck, Wallet, MessageSquare, Plus, Search, Filter, Download } from 'lucide-react';
-import { useAuth } from '../auth/AuthProvider';
-import { peopleService, PeopleService } from '../../utils/supabase/people-service';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
+import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
@@ -20,7 +20,7 @@ interface PeopleManagementProps {
 }
 
 export function PeopleManagement({ onPageChange }: PeopleManagementProps) {
-  const { session } = useAuth();
+  const { session } = useMultiTenantAuth();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('customers');
   const [stats, setStats] = useState({

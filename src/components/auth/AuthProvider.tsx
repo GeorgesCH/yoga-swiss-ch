@@ -168,7 +168,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                   .eq('user_id', session.user.id)
                   .eq('is_active', true);
 
-                if (!orgsError && orgsData && orgsData.length > 0) {
+                if (orgsError) {
+                  console.warn('[AuthProvider] Database query failed (tables may not exist):', orgsError.message);
+                  setUserOrgs([]);
+                  setCurrentOrg(null);
+                } else if (orgsData && orgsData.length > 0) {
                   const userOrgsData = orgsData.map(item => ({
                     ...item.orgs,
                     role: item.role,
@@ -183,7 +187,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                   setCurrentOrg(null);
                 }
               } catch (dbError) {
-                console.log('[AuthProvider] Database query failed, no organizations available:', dbError);
+                console.warn('[AuthProvider] Database query failed (tables may not exist):', dbError);
                 setUserOrgs([]);
                 setCurrentOrg(null);
               }

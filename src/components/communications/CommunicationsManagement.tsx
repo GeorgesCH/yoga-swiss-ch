@@ -9,8 +9,8 @@ import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
 import { Checkbox } from '../ui/checkbox';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { useAuth } from '../auth/AuthProvider';
-import { peopleService, PeopleService } from '../../utils/supabase/people-service';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
+import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
 import { getCommunications, getCommunicationTemplates } from '../../utils/supabase/communications-service-safe';
 import { 
   Search, Plus, Send, MessageSquare, Mail, Bell, Smartphone,
@@ -161,7 +161,7 @@ const channelIcons = {
 };
 
 export function CommunicationsManagement() {
-  const { session } = useAuth();
+  const { session } = useMultiTenantAuth();
   const [activeTab, setActiveTab] = useState('campaigns');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');

@@ -22,6 +22,8 @@ interface Org {
   id: string;
   name: string;
   slug: string;
+  type?: 'brand' | 'studio';
+  parent_org_id?: string;
   primary_locale: 'en'; // English only
   timezone: string;
   currency: string;
@@ -69,17 +71,42 @@ const mockUser: User = {
   }
 };
 
-const mockOrgs: (Org & { role: OrgUser['role']; status: OrgUser['status'] })[] = [
+const mockOrgs: (Org & { role: OrgUser['role']; status: OrgUser['status']; type: 'brand' | 'studio'; parent_org_id?: string })[] = [
   {
     id: DEMO_UUIDS.DEMO_ORG_PRIMARY,
-    name: 'YogaZen Zürich',
-    slug: 'yogazen-zurich',
+    name: 'YogaZen Brand',
+    slug: 'yogazen-brand',
+    type: 'brand',
     primary_locale: 'en',
     timezone: 'Europe/Zurich',
     currency: 'CHF',
     status: 'active',
     role: 'owner',
+    created_at: '2024-01-01T00:00:00Z'
+  },
+  {
+    id: 'demo-studio-1',
+    name: 'YogaZen Zürich Studio',
+    slug: 'yogazen-zurich',
+    type: 'studio',
+    parent_org_id: DEMO_UUIDS.DEMO_ORG_PRIMARY,
+    primary_locale: 'en',
+    timezone: 'Europe/Zurich',
+    currency: 'CHF',
     status: 'active',
+    role: 'owner',
+    created_at: '2024-01-01T00:00:00Z'
+  },
+  {
+    id: 'demo-studio-2',
+    name: 'Independent Yoga Studio',
+    slug: 'independent-studio',
+    type: 'studio',
+    primary_locale: 'en',
+    timezone: 'Europe/Zurich',
+    currency: 'CHF',
+    status: 'active',
+    role: 'owner',
     created_at: '2024-01-01T00:00:00Z'
   }
 ];

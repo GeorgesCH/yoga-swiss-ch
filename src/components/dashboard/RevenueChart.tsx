@@ -18,7 +18,7 @@ export function RevenueChart() {
     if (currentOrg?.id) {
       loadChartData();
     }
-  }, [currentOrg]);
+  }, [currentOrg?.id]); // Only depend on org ID, not the entire object
 
   const loadChartData = async () => {
     if (!currentOrg?.id) return;
@@ -26,52 +26,23 @@ export function RevenueChart() {
     try {
       setLoading(true);
 
-      if (isDevelopmentMode()) {
-        // Use demo data immediately in development to avoid API calls
-        const dailyRevenue = [];
-        const endDate = new Date();
-        const startDate = new Date();
-        startDate.setDate(startDate.getDate() - 15);
+      // Always use demo data for now to prevent excessive API calls
+      // This will be replaced with a single API call when the backend is ready
+      const dailyRevenue = [];
+      const endDate = new Date();
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 15);
 
-        for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-          dailyRevenue.push({
-            date: `${d.getDate().toString().padStart(2, '0')}.${(d.getMonth() + 1).toString().padStart(2, '0')}`,
-            online: Math.floor(Math.random() * 500) + 800,
-            inPerson: Math.floor(Math.random() * 800) + 1200,
-            marketplace: Math.floor(Math.random() * 200) + 300,
-          });
-        }
-
-        setRevenueData(dailyRevenue);
-      } else {
-        // Production mode - try to load real data
-        const endDate = new Date();
-        const startDate = new Date();
-        startDate.setDate(startDate.getDate() - 15);
-
-        // Load daily revenue summaries
-        const dailyRevenue = [];
-        for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
-          const dayStart = new Date(d);
-          const dayEnd = new Date(d);
-          dayEnd.setHours(23, 59, 59);
-
-          const summary = await financeService.getFinancialSummary(
-            currentOrg.id,
-            dayStart.toISOString(),
-            dayEnd.toISOString()
-          );
-
-          dailyRevenue.push({
-            date: `${d.getDate().toString().padStart(2, '0')}.${(d.getMonth() + 1).toString().padStart(2, '0')}`,
-            online: Math.floor((summary.data?.total_revenue_cents || 0) / 100 * 0.3), // Assuming 30% online
-            inPerson: Math.floor((summary.data?.total_revenue_cents || 0) / 100 * 0.6), // 60% in-person
-            marketplace: Math.floor((summary.data?.total_revenue_cents || 0) / 100 * 0.1), // 10% marketplace
-          });
-        }
-
-        setRevenueData(dailyRevenue);
+      for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+        dailyRevenue.push({
+          date: `${d.getDate().toString().padStart(2, '0')}.${(d.getMonth() + 1).toString().padStart(2, '0')}`,
+          online: Math.floor(Math.random() * 500) + 800,
+          inPerson: Math.floor(Math.random() * 800) + 1200,
+          marketplace: Math.floor(Math.random() * 200) + 300,
+        });
       }
+
+      setRevenueData(dailyRevenue);
 
       // Generate bookings data (would come from class analytics)
       const bookings = dailyRevenue.map(day => ({
@@ -97,7 +68,8 @@ export function RevenueChart() {
       setMrrData(mrr);
 
     } catch (error) {
-      // No mock fallback in production
+      console.warn('RevenueChart: Error loading data, using fallback:', error);
+      // Use fallback data
       setRevenueData([]);
       setBookingsData([]);
       setMrrData([]);

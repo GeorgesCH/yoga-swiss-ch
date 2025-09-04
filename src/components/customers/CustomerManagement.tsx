@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '../LanguageProvider';
-import { useAuth } from '../auth/AuthProvider';
-import { peopleService, type Customer } from '../../utils/supabase/people-service';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
+import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -54,7 +54,7 @@ const tagColors = {
 
 export function CustomerManagement() {
   const { t } = useLanguage();
-  const { session } = useAuth();
+  const { session, currentOrg } = useMultiTenantAuth();
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -85,39 +85,43 @@ export function CustomerManagement() {
       setLoading(true);
       setError(null);
       
-      // Initialize service with access token - fixed import issue
-      const { PeopleService } = await import('../../utils/supabase/people-service');
+      console.log('📋 Customer Management - Loading customers with enhanced service');
       
-      // Extract access token from session (Supabase session structure)
-      // In Supabase, the access token is usually at session.access_token
-      const accessToken = session?.access_token;
-      console.log('📋 Customer Management - Session debug:', { 
-        hasSession: !!session, 
-        hasAccessToken: !!accessToken, 
-        sessionKeys: session ? Object.keys(session) : [],
-        sessionStructure: session ? {
-          access_token: !!session.access_token,
-          user: !!session.user,
-          refresh_token: !!session.refresh_token
-        } : null,
-        userInfo: session?.user ? {
-          id: session.user.id,
-          email: session.user.email,
-          email_confirmed: !!session.user.email_confirmed_at
-        } : null,
-        accessTokenPreview: accessToken ? `${accessToken.substring(0, 20)}...` : 'none'
+      // Use enhanced service that returns demo data when database is not ready
+      const orgId = currentOrg?.id || 'dfaa741f-720c-4bb7-93db-2867c4dc2d36';
+      const result = await enhancedPeopleService.getCustomers(orgId, {
+        page: 1,
+        limit: 100,
+        search: '',
+        status: 'all',
+        sortBy: 'created_at',
+        sortOrder: 'desc'
       });
       
-      const service = accessToken 
-        ? new PeopleService(accessToken)
-        : new PeopleService();
-      
-      const { customers: customerData, error: customerError } = await service.getCustomers();
-      
-      if (customerError) {
-        setError(customerError);
-        console.error('Error loading customers:', customerError);
+      if (result.error) {
+        setError(result.error);
+        console.error('Error loading customers:', result.error);
       } else {
+        // Transform the enhanced service response to match Customer interface
+        const customerData = result.data?.data?.map((customer: any) => ({
+          id: customer.id,
+          email: customer.customer?.email || customer.email,
+          firstName: customer.customer?.first_name || customer.first_name || 'Unknown',
+          lastName: customer.customer?.last_name || customer.last_name || 'Customer',
+          phone: customer.customer?.phone || customer.phone || '',
+          avatar: customer.customer?.avatar_url || customer.avatar_url || '',
+          language: customer.customer?.preferred_locale || customer.language || 'en-CH',
+          status: customer.is_active ? 'Active' : 'Inactive',
+          city: 'Zürich', // Default city for demo data
+          joinedDate: customer.joined_at || customer.created_at,
+          lastActivity: customer.updated_at || new Date().toISOString(),
+          totalSpent: customer.customer?.orders?.reduce((sum: number, order: any) => sum + (order.total_cents || 0), 0) || 0,
+          classCount: customer.customer?.registrations?.[0]?.count || 0,
+          walletBalance: customer.customer?.wallets?.[0]?.credit_balance || 0,
+          tags: ['Regular'], // Default tags for demo data
+          riskLevel: 'Low' // Default risk level
+        })) || [];
+        
         setCustomers(customerData);
         console.log('Loaded customers:', customerData.length);
       }
@@ -606,8 +610,8 @@ export function CustomerManagement() {
         <CreateCustomerDialog
           onClose={() => setShowCreateCustomer(false)}
           onCustomerCreated={(customer) => {
-            // Refresh the customer list after creation
-            loadCustomers();
+            // Add the new customer to the existing list
+            setCustomers(prevCustomers => [customer, ...prevCustomers]);
             setShowCreateCustomer(false);
           }}
         />

@@ -12,7 +12,13 @@ export function CorsWorkaroundBanner() {
   useEffect(() => {
     const checkApiStatus = async () => {
       try {
-        const response = await fetch('https://okvreiyhuxjosgauqaqq.supabase.co/functions/v1/make-server-f0b2daa4/health');
+        const response = await fetch('https://okvreiyhuxjosgauqaqq.supabase.co/functions/v1/make-server-f0b2daa4/health', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session?.access_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rdnJlaXlodXhqb3NnYXVxYXFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3OTMxNTUsImV4cCI6MjA3MjM2OTE1NX0.UACcNr69YBb7a39DGSBgDjI5S2Nh8KNkcowogfJ7fBI'}`
+          }
+        });
         setApiStatus(response.ok ? 'healthy' : 'unhealthy');
       } catch (error) {
         setApiStatus('unhealthy');
@@ -20,7 +26,7 @@ export function CorsWorkaroundBanner() {
     };
 
     checkApiStatus();
-  }, []);
+  }, [session?.access_token]);
 
   if (dismissed) return null;
 

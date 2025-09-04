@@ -125,7 +125,14 @@ export function ProductionAuthProvider({ children }: { children: React.ReactNode
         .eq('user_id', userId)
         .eq('is_active', true);
 
-      if (!orgsError && orgsData && orgsData.length > 0) {
+      if (orgsError) {
+        console.warn('[ProductionAuth] Database query failed (tables may not exist):', orgsError.message);
+        setUserOrgs([]);
+        setCurrentOrg(null);
+        return;
+      }
+
+      if (orgsData && orgsData.length > 0) {
         const userOrgsData = orgsData.map(item => ({
           ...item.orgs,
           role: item.role,
@@ -145,7 +152,7 @@ export function ProductionAuthProvider({ children }: { children: React.ReactNode
         setCurrentOrg(null);
       }
     } catch (dbError) {
-      console.error('[ProductionAuth] Failed to load organizations:', dbError);
+      console.warn('[ProductionAuth] Database query failed (tables may not exist):', dbError);
       setUserOrgs([]);
       setCurrentOrg(null);
     }

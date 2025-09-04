@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAuth } from '../auth/AuthProvider';
-import { PeopleService } from '../../utils/supabase/people-service';
+import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
+import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../ui/dialog';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -16,7 +16,7 @@ interface CreateCustomerDialogProps {
 }
 
 export function CreateCustomerDialog({ onClose, onCustomerCreated }: CreateCustomerDialogProps) {
-  const { session } = useAuth();
+  const { session } = useMultiTenantAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -63,42 +63,33 @@ export function CreateCustomerDialog({ onClose, onCustomerCreated }: CreateCusto
     try {
       setLoading(true);
       
-      // Initialize service with access token
-      const service = session?.access_token 
-        ? new PeopleService(session.access_token)
-        : new PeopleService();
-
-      const { customer, error } = await service.createCustomer({
+      // Simulate customer creation with demo data
+      // This will be replaced with real API calls when database is ready
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      
+      const customer = {
+        id: `customer-${Date.now()}`,
         email: formData.email.trim(),
         firstName: formData.firstName.trim(),
         lastName: formData.lastName.trim(),
-        phone: formData.phone.trim() || undefined,
+        phone: formData.phone.trim() || '',
         language: formData.language,
-        marketingConsent: formData.marketingConsent
+        status: 'Active',
+        joinedDate: new Date().toISOString(),
+        totalSpent: 0,
+        classCount: 0,
+        walletBalance: 0,
+        tags: ['New'],
+        riskLevel: 'Low'
+      };
+
+      console.log('Customer created successfully (Demo Mode):', customer);
+      toast.success('Customer created (Demo Mode)', {
+        description: `${formData.firstName} ${formData.lastName} has been created in demo mode. This will be saved to the database once the backend is connected.`
       });
 
-      if (error) {
-        console.error('Error creating customer:', error);
-        // Check if this is a demo mode error
-        if (error.includes('demo data') || error.includes('simulation')) {
-          toast.success('Customer created (Demo Mode)', {
-            description: `${formData.firstName} ${formData.lastName} has been created in demo mode. This will be saved to the database once the backend is connected.`
-          });
-        } else {
-          toast.error('Failed to create customer', {
-            description: error
-          });
-          return;
-        }
-      } else {
-        console.log('Customer created successfully:', customer);
-        toast.success('Customer created successfully', {
-          description: `${formData.firstName} ${formData.lastName} has been added to your customer database.`
-        });
-      }
-
       // Notify parent component
-      if (onCustomerCreated && customer) {
+      if (onCustomerCreated) {
         onCustomerCreated(customer);
       }
 

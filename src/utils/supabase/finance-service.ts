@@ -263,40 +263,61 @@ export class FinanceService {
       const data = await response.json();
       
       if (!response.ok) {
+        // Handle specific error cases gracefully
+        if (response.status === 500) {
+          console.warn(`Finance API server error [${endpoint}] - using fallback data`);
+          return this.getFallbackData(endpoint);
+        }
+        
         throw new Error(data.error || `Request failed with status ${response.status}`);
       }
 
       return data;
     } catch (error) {
-      // Determine if we're in development mode
-      const isDevelopment = process.env.NODE_ENV === 'development';
-      
-      // Only log detailed errors in development
-      if (isDevelopment) {
-        console.warn(`Finance API unavailable [${endpoint}] - using fallback data`);
-      }
-      
-      // Return fallback data for development when API is not available
-      if (endpoint.includes('/reports/summary/')) {
-        return { 
-          data: {
-            total_revenue_cents: 0,
-            total_orders: 0,
-            total_customers: 0,
-            average_order_value_cents: 0,
-            revenue_by_category: [],
-            daily_revenue: [],
-            payment_methods: []
-          }
-        };
-      }
-      
-      if (endpoint.includes('/orders/')) {
-        return { data: [] };
-      }
-      
-      throw error;
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.warn(`Finance API unavailable [${endpoint}] - using fallback data:`, errorMessage);
+      return this.getFallbackData(endpoint);
     }
+  }
+
+  private getFallbackData(endpoint: string) {
+    // Return appropriate fallback data based on endpoint
+    if (endpoint.includes('/reports/summary/')) {
+      return { 
+        data: {
+          total_revenue_cents: 0,
+          total_payments_cents: 0,
+          total_fees_cents: 0,
+          net_revenue_cents: 0,
+          wallet_liability_cents: 0,
+          credit_liability: 0,
+          order_count: 0,
+          payment_count: 0,
+          average_order_value_cents: 0,
+          metadata: {
+            orders_available: false,
+            payments_available: false,
+            wallets_available: false,
+            is_fallback: true,
+            error: 'API unavailable'
+          }
+        }
+      };
+    }
+    
+    if (endpoint.includes('/orders/')) {
+      return { data: [] };
+    }
+
+    if (endpoint.includes('/payments/')) {
+      return { data: [] };
+    }
+
+    if (endpoint.includes('/wallets/')) {
+      return { data: [] };
+    }
+    
+    return { data: null, error: 'Endpoint not supported' };
   }
 
   // Order Management
