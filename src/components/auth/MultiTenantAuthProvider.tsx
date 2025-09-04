@@ -278,7 +278,6 @@ export function MultiTenantAuthProvider({ children }: { children: React.ReactNod
             });
           }
         }
-      }
     } catch (error) {
       console.log('[MultiTenantAuthProvider] Error loading organizations:', error);
       // Set empty state - user needs to create or join an organization
