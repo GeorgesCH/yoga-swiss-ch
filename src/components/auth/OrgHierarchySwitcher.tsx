@@ -101,7 +101,20 @@ export function OrgHierarchySwitcher() {
 
   // Group organizations by brands and studios
   const groupedOrgs = userOrgs.reduce((acc, org) => {
-    if (org.type === 'brand') {
+    // Debug: log organization data to understand the structure
+    console.log('Organization data:', { 
+      id: org.id, 
+      name: org.name, 
+      type: org.type, 
+      parent_org_id: org.parent_org_id,
+      hasType: 'type' in org,
+      allKeys: Object.keys(org)
+    });
+    
+    // Fallback: if type is missing, assume it's a studio
+    const orgType = org.type || 'studio';
+    
+    if (orgType === 'brand') {
       acc.brands.push(org);
     } else {
       const brandId = org.parent_org_id || 'independent';
@@ -112,6 +125,9 @@ export function OrgHierarchySwitcher() {
     }
     return acc;
   }, { brands: [] as any[], studios: {} as any });
+
+  // Debug: log the grouped organizations
+  console.log('Grouped organizations:', groupedOrgs);
 
   // Filter organizations based on search
   const filteredOrgs = userOrgs.filter(org =>
@@ -320,7 +336,7 @@ export function OrgHierarchySwitcher() {
                       </div>
                     </div>
                     
-                    {newOrgData.type === 'studio' && userOrgs.filter(org => org.type === 'brand').length > 0 && (
+                    {newOrgData.type === 'studio' && userOrgs.filter(org => (org.type || 'studio') === 'brand').length > 0 && (
                       <div>
                         <label className="text-sm font-medium">Parent Brand (Optional)</label>
                         <p className="text-xs text-muted-foreground mb-2">
@@ -336,7 +352,7 @@ export function OrgHierarchySwitcher() {
                         >
                           <option value="">Independent Studio</option>
                           {userOrgs
-                            .filter(org => org.type === 'brand') // Double-check: only show brands
+                            .filter(org => (org.type || 'studio') === 'brand') // Double-check: only show brands
                             .map((brand) => (
                               <option key={brand.id} value={brand.id}>
                                 {brand.name}
