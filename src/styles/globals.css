@@ -1,0 +1,567 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* Luxury Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Luxury Swiss Color Palette */
+  --neutral-000: #0E0F12;
+  --neutral-100: #1A1C20;
+  --neutral-200: #2A2D33;
+  --neutral-300: #3A3F47;
+  --neutral-400: #5A6169;
+  --neutral-500: #7A8289;
+  --neutral-600: #9AA3A9;
+  --neutral-700: #BAC3C9;
+  --neutral-800: #DAE3E9;
+  --neutral-900: #F7F7F5;
+  
+  /* Swiss Heritage Colors */
+  --champagne: #E6D9C7;
+  --champagne-dark: #D4C5AC;
+  --forest: #123C2E;
+  --forest-light: #1A5A43;
+  --lake: #1C4E73;
+  --lake-light: #2A6B9A;
+  --copper: #B06A3C;
+  --copper-light: #C8824E;
+  
+  /* Luxury Color System */
+  --background: #FEFEFE;
+  --foreground: var(--neutral-000);
+  --card: #FFFFFF;
+  --card-foreground: var(--neutral-000);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--neutral-000);
+  --primary: var(--forest);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--champagne);
+  --secondary-foreground: var(--forest);
+  --muted: var(--neutral-800);
+  --muted-foreground: var(--neutral-500);
+  --accent: var(--lake);
+  --accent-foreground: #FFFFFF;
+  --destructive: #C53030;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(18, 60, 46, 0.08);
+  --input: transparent;
+  --input-background: var(--neutral-900);
+  --switch-background: var(--neutral-600);
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --ring: var(--forest);
+  
+  /* Chart Colors */
+  --chart-1: #1f77b4;
+  --chart-2: #ff7f0e;
+  --chart-3: #2ca02c;
+  --chart-4: #d62728;
+  --chart-5: #9467bd;
+  
+  /* Luxury Radius Scale */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius: var(--radius-md);
+  /* Luxury Spacing Scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 88px;
+  --space-5xl: 120px;
+  
+  /* Luxury Elevation */
+  --elevation-1: 0 1px 3px rgba(18, 60, 46, 0.06), 0 1px 2px rgba(18, 60, 46, 0.04);
+  --elevation-2: 0 4px 6px rgba(18, 60, 46, 0.07), 0 2px 4px rgba(18, 60, 46, 0.05);
+  --elevation-3: 0 10px 15px rgba(18, 60, 46, 0.08), 0 4px 6px rgba(18, 60, 46, 0.05);
+  --elevation-4: 0 20px 25px rgba(18, 60, 46, 0.10), 0 10px 10px rgba(18, 60, 46, 0.04);
+  
+  /* Typography Tokens */
+  --font-serif: 'Libre Caslon Text', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Brand Variables (can be overridden dynamically) */
+  --brand-primary: var(--primary);
+  --brand-secondary: var(--secondary);
+  --brand-accent: var(--accent);
+  --brand-on-primary: var(--primary-foreground);
+  --brand-surface: var(--background);
+  --brand-on-surface: var(--foreground);
+  --brand-radius-sm: var(--radius-sm);
+  --brand-radius-md: var(--radius-md);
+  --brand-radius-lg: var(--radius-lg);
+  --brand-elevation-card: var(--elevation-2);
+  --brand-font: var(--font-serif);
+  --brand-body-font: var(--font-sans);
+  --brand-email-header-bg: var(--primary);
+  
+  /* Luxury Sidebar */
+  --sidebar: var(--neutral-900);
+  --sidebar-foreground: var(--neutral-000);
+  --sidebar-primary: var(--forest);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--champagne);
+  --sidebar-accent-foreground: var(--forest);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--forest);
+}
+
+.dark {
+  /* Dark Mode Luxury Colors */
+  --background: var(--neutral-100);
+  --foreground: var(--neutral-900);
+  --card: var(--neutral-200);
+  --card-foreground: var(--neutral-900);
+  --popover: var(--neutral-200);
+  --popover-foreground: var(--neutral-900);
+  --primary: var(--champagne);
+  --primary-foreground: var(--forest);
+  --secondary: var(--forest-light);
+  --secondary-foreground: var(--champagne);
+  --muted: var(--neutral-300);
+  --muted-foreground: var(--neutral-600);
+  --accent: var(--lake-light);
+  --accent-foreground: #FFFFFF;
+  --destructive: #FC8181;
+  --destructive-foreground: var(--neutral-000);
+  --border: rgba(230, 217, 199, 0.12);
+  --input: var(--neutral-300);
+  --ring: var(--champagne);
+  
+  /* Dark Mode Chart Colors */
+  --chart-1: #4fc3f7;
+  --chart-2: #ffb74d;
+  --chart-3: #81c784;
+  --chart-4: #f06292;
+  --chart-5: #ba68c8;
+  
+  /* Dark Mode Sidebar */
+  --sidebar: var(--neutral-200);
+  --sidebar-foreground: var(--neutral-900);
+  --sidebar-primary: var(--champagne);
+  --sidebar-primary-foreground: var(--forest);
+  --sidebar-accent: var(--forest-light);
+  --sidebar-accent-foreground: var(--champagne);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--champagne);
+}
+
+@theme inline {
+  /* Text sizes */
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-4xl: var(--text-4xl);
+  
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-family: var(--font-serif);
+      font-size: var(--text-4xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.4;
+      letter-spacing: -0.015em;
+    }
+
+    h4 {
+      font-family: var(--font-sans);
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.4;
+    }
+
+    h5 {
+      font-family: var(--font-sans);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.5;
+    }
+
+    h6 {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.5;
+    }
+
+    p {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.6;
+    }
+
+    label {
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input, textarea, select {
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    .caption {
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.4;
+      color: var(--muted-foreground);
+    }
+
+    .overline {
+      font-family: var(--font-sans);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-sans);
+}
+
+/* Luxury Animation System */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Luxury Component Classes */
+.luxury-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-1);
+  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-card:hover {
+  box-shadow: var(--elevation-3);
+  transform: translateY(-2px);
+}
+
+.luxury-button-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  transition: all 150ms ease;
+}
+
+.luxury-button-primary:hover {
+  background: var(--forest-light);
+  transform: scale(0.98);
+}
+
+.luxury-input {
+  background: var(--input-background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  font-family: var(--font-sans);
+  transition: all 150ms ease;
+}
+
+.luxury-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(18, 60, 46, 0.1);
+}
+
+/* Brand Theming Support */
+.brand-styled-card {
+  border-color: var(--brand-primary, var(--border));
+  box-shadow: var(--brand-elevation-card, var(--elevation-1));
+  border-radius: var(--brand-radius-md, var(--radius-md));
+}
+
+.brand-styled-card:hover {
+  box-shadow: var(--elevation-3);
+  transform: translateY(-1px);
+}
+
+.brand-checkout-flow {
+  --checkout-button-bg: var(--brand-primary, var(--primary));
+  --checkout-button-text: var(--brand-on-primary, var(--primary-foreground));
+}
+
+.brand-checkout-flow .checkout-primary-button {
+  background-color: var(--checkout-button-bg);
+  color: var(--checkout-button-text);
+  border-radius: var(--brand-radius-md, var(--radius-md));
+  box-shadow: var(--elevation-2);
+}
+
+/* Brand Preview Mode */
+.brand-preview-mode {
+  position: relative;
+}
+
+.brand-preview-mode::before {
+  content: "Brand Preview Mode";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, var(--forest), var(--lake));
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  z-index: 9999;
+  font-family: var(--font-sans);
+}
+
+/* Luxury Navigation */
+.nav-pill-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--elevation-1);
+}
+
+.nav-pill-active {
+  background: var(--background);
+  box-shadow: var(--elevation-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* Luxury Multi-Tenant Brand Themes */
+[data-brand="yogaswiss"] {
+  --brand-primary: var(--forest);
+  --brand-secondary: var(--champagne);
+  --brand-accent: var(--lake);
+  --brand-on-primary: #FFFFFF;
+  --brand-radius-sm: var(--radius-sm);
+  --brand-radius-md: var(--radius-md);
+  --brand-radius-lg: var(--radius-lg);
+}
+
+[data-brand="zen-studio-zurich"] {
+  --brand-primary: #2D3748;
+  --brand-secondary: #ED8936;
+  --brand-accent: #38B2AC;
+  --brand-on-primary: #FFFFFF;
+  --brand-radius-sm: 6px;
+  --brand-radius-md: 10px;
+  --brand-radius-lg: 16px;
+}
+
+[data-brand="alpine-yoga-retreat"] {
+  --brand-primary: #2C5282;
+  --brand-secondary: #F6AD55;
+  --brand-accent: #68D391;
+  --brand-on-primary: #FFFFFF;
+  --brand-radius-sm: 8px;
+  --brand-radius-md: 14px;
+  --brand-radius-lg: 20px;
+}
+
+[data-brand="flow-studio-geneva"] {
+  --brand-primary: #6B46C1;
+  --brand-secondary: #F59E0B;
+  --brand-accent: #EC4899;
+  --brand-on-primary: #FFFFFF;
+  --brand-radius-sm: 4px;
+  --brand-radius-md: 8px;
+  --brand-radius-lg: 12px;
+}
+
+[data-brand="mindful-movement-basel"] {
+  --brand-primary: #059669;
+  --brand-secondary: #D97706;
+  --brand-accent: #7C3AED;
+  --brand-on-primary: #FFFFFF;
+  --brand-radius-sm: 10px;
+  --brand-radius-md: 16px;
+  --brand-radius-lg: 24px;
+}
+
+/* Luxury Class Type Badges */
+.class-badge-vinyasa { background: linear-gradient(135deg, var(--forest), var(--forest-light)); }
+.class-badge-hatha { background: linear-gradient(135deg, var(--lake), var(--lake-light)); }
+.class-badge-yin { background: linear-gradient(135deg, var(--copper), var(--copper-light)); }
+.class-badge-outdoor { background: linear-gradient(135deg, #10B981, #34D399); }
+.class-badge-retreat { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+
+/* Swiss Quality Indicators */
+.swiss-quality-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--forest);
+}
+
+.swiss-quality-mark::before {
+  content: "🇨🇭";
+  font-size: 1.2em;
+}
+
+/* Luxury Pricing Display */
+.luxury-price {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-semibold);
+}
+
+.luxury-price .currency {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

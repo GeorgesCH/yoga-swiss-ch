@@ -1,0 +1,792 @@
+{
+  "meta": {
+    "title": "YogaSwiss - Gestione studio yoga svizzero",
+    "description": "La piattaforma di gestione studio leader per studi yoga svizzeri. Con TWINT, fatture QR e supporto 4 lingue.",
+    "keywords": "Yoga, Studio, Gestione, Svizzera, TWINT, Fattura QR"
+  },
+  "admin": {
+    "mode": "Modalità Admin",
+    "demo": "🚀 Demo",
+    "debug": "🔧 Debug",
+    "reload": "🔄 Ricarica"
+  },
+  "auth": {
+    "login": {
+      "title": "Accedi a YogaSwiss",
+      "subtitle": "Gestisci il tuo studio yoga con precisione svizzera",
+      "email": "E-mail",
+      "password": "Password",
+      "cta": "Accedi",
+      "forgot_password": "Password dimenticata?",
+      "no_account": "Non hai ancora un account?",
+      "sign_up": "Registrati",
+      "magic_link": "Accedi con Magic Link"
+    },
+    "signup": {
+      "title": "Registrati a YogaSwiss",
+      "studio_name": "Nome dello studio",
+      "your_name": "Il tuo nome",
+      "confirm_password": "Conferma password",
+      "cta": "Crea account",
+      "have_account": "Hai già un account?",
+      "privacy_accept": "Accetto la politica sulla privacy"
+    },
+    "organization": {
+      "create_title": "Crea nuova organizzazione",
+      "organization_name": "Nome organizzazione",
+      "url_slug": "Identificativo URL",
+      "organization_type": "Tipo di organizzazione",
+      "studio_single": "Studio (Singola sede)",
+      "brand_multiple": "Brand (Sedi multiple)",
+      "creating": "Creazione...",
+      "create": "Crea",
+      "welcome_title": "Benvenuto su YogaSwiss",
+      "welcome_subtitle": "Per iniziare, devi far parte di un'organizzazione",
+      "create_organization": "Crea organizzazione",
+      "join_organization": "Unisciti all'organizzazione",
+      "recovery": "Recupero"
+    }
+  },
+  "navigation": {
+    "overview": "Panoramica",
+    "schedule": "Programma",
+    "registrations": "Iscrizioni",
+    "customers": "Clienti",
+    "finance": "Finanze", 
+    "marketing": "Marketing",
+    "settings": "Impostazioni",
+    "logout": "Disconnetti",
+    "instructors": "Insegnanti",
+    "locations": "Sedi",
+    "analytics": "Analisi",
+    "retreats": "Ritiri",
+    "programs": "Programmi",
+    "shop": "Negozio"
+  },
+  "dashboard": {
+    "welcome": "Bentornato",
+    "studio_health": "Salute dello studio",
+    "todays_revenue": "Ricavi di oggi",
+    "active_memberships": "Abbonamenti attivi",
+    "classes_today": "Corsi oggi",
+    "upcoming_classes": "Corsi in arrivo",
+    "total_customers": "Clienti totali",
+    "monthly_growth": "Crescita mensile",
+    "class_utilization": "Utilizzo dei corsi",
+    "instructor_performance": "Performance degli insegnanti"
+  },
+  "classes": {
+    "title": "Corsi & Orari",
+    "new_class": "Nuovo corso",
+    "search_placeholder": "Cerca corsi...",
+    "filter_by_level": "Filtra per livello",
+    "filter_by_instructor": "Filtra per insegnante",
+    "next_session_on": "Prossima sessione il",
+    "class_name": "Nome del corso",
+    "description": "Descrizione",
+    "duration": "Durata",
+    "capacity": "Capacità",
+    "price": "Prezzo",
+    "level": "Livello",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato",
+    "all_levels": "Tutti i livelli",
+    "class_type": "Tipo di corso",
+    "hatha": "Hatha",
+    "vinyasa": "Vinyasa",
+    "yin": "Yin",
+    "restorative": "Restorative",
+    "hot": "Hot Yoga",
+    "outdoor": "All'aperto",
+    "online": "Online",
+    "workshop": "Workshop",
+    "retreat": "Ritiro"
+  },
+  "instructors": {
+    "title": "Insegnanti",
+    "add_instructor": "Aggiungi insegnante",
+    "instructor_name": "Nome insegnante",
+    "bio": "Biografia",
+    "specialties": "Specialità",
+    "certifications": "Certificazioni",
+    "hourly_rate": "Tariffa oraria",
+    "availability": "Disponibilità",
+    "contact_info": "Informazioni di contatto"
+  },
+  "locations": {
+    "title": "Sedi",
+    "add_location": "Aggiungi sede",
+    "location_name": "Nome della sede",
+    "address": "Indirizzo",
+    "city": "Città",
+    "postal_code": "Codice postale",
+    "canton": "Cantone",
+    "capacity": "Capacità",
+    "amenities": "Servizi",
+    "equipment": "Attrezzature",
+    "outdoor_location": "Sede all'aperto",
+    "indoor_studio": "Studio interno",
+    "online_platform": "Piattaforma online"
+  },
+  "registrations": {
+    "title": "Iscrizioni ai corsi",
+    "participant": "Partecipante",
+    "class": "Corso",
+    "status": "Stato",
+    "payment_status": "Stato del pagamento",
+    "registered_at": "Iscritto il",
+    "confirmed": "Confermato",
+    "pending": "In attesa",
+    "cancelled": "Annullato",
+    "checked_in": "Registrato",
+    "no_show": "Assente",
+    "waitlisted": "Lista d'attesa"
+  },
+  "checkout": {
+    "pay_with_twint": "Paga con TWINT",
+    "pay_with_card": "Paga con carta",
+    "total_amount": "Importo totale",
+    "processing_payment": "Elaborazione pagamento...",
+    "payment_successful": "Pagamento riuscito!",
+    "payment_failed": "Pagamento fallito",
+    "select_payment_method": "Seleziona metodo di pagamento",
+    "card_number": "Numero della carta",
+    "expiry_date": "Data di scadenza",
+    "cvv": "CVV",
+    "cardholder_name": "Nome del titolare",
+    "billing_address": "Indirizzo di fatturazione"
+  },
+  "finance": {
+    "invoices": "Fatture",
+    "payments": "Pagamenti",
+    "qr_bill": "Fattura QR",
+    "generate_qr_bill": "Genera fattura QR", 
+    "revenue_report": "Report ricavi",
+    "vat_report": "Report IVA",
+    "title": "Gestione finanziaria",
+    "overview": "Panoramica finanziaria",
+    "transactions": "Transazioni",
+    "refunds": "Rimborsi",
+    "wallet_management": "Gestione portafoglio",
+    "payment_methods": "Metodi di pagamento",
+    "tax_settings": "Impostazioni fiscali",
+    "vat_rate": "Aliquota IVA",
+    "currency": "Valuta"
+  },
+  "customers": {
+    "title": "Clienti",
+    "add_customer": "Aggiungi cliente",
+    "customer_details": "Dettagli cliente",
+    "membership_status": "Stato abbonamento",
+    "credit_balance": "Saldo crediti",
+    "first_name": "Nome",
+    "last_name": "Cognome",
+    "email": "Indirizzo e-mail",
+    "phone": "Numero di telefono",
+    "date_of_birth": "Data di nascita",
+    "emergency_contact": "Contatto di emergenza",
+    "medical_notes": "Note mediche",
+    "preferences": "Preferenze",
+    "booking_history": "Cronologia prenotazioni",
+    "wallet_balance": "Saldo portafoglio"
+  },
+  "marketing": {
+    "title": "Marketing",
+    "campaigns": "Campagne",
+    "segments": "Segmenti clienti",
+    "analytics": "Analisi marketing",
+    "email_marketing": "Email marketing",
+    "promotions": "Promozioni",
+    "referrals": "Programma referral",
+    "social_media": "Social media",
+    "create_campaign": "Crea campagna",
+    "campaign_name": "Nome campagna",
+    "target_audience": "Pubblico target",
+    "send_date": "Data di invio"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "general": "Impostazioni generali",
+    "payment": "Impostazioni pagamento",
+    "notifications": "Impostazioni notifiche",
+    "integrations": "Integrazioni",
+    "security": "Sicurezza",
+    "language": "Impostazioni lingua",
+    "select_language": "Seleziona la tua lingua",
+    "timezone": "Fuso orario",
+    "currency_settings": "Impostazioni valuta",
+    "branding": "Branding e tema",
+    "api_keys": "Chiavi API",
+    "database": "Gestione database"
+  },
+  "common": {
+    "save": "Salva",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "create": "Crea",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "confirm": "Conferma",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "sort": "Ordina",
+    "export": "Esporta",
+    "import": "Importa",
+    "close": "Chiudi",
+    "open": "Apri",
+    "view": "Visualizza",
+    "download": "Scarica",
+    "upload": "Carica",
+    "refresh": "Aggiorna",
+    "retry": "Riprova",
+    "submit": "Invia",
+    "reset": "Ripristina",
+    "clear": "Cancella",
+    "select": "Seleziona",
+    "all": "Tutti",
+    "none": "Nessuno",
+    "active": "Attivo",
+    "inactive": "Inattivo",
+    "enabled": "Abilitato",
+    "disabled": "Disabilitato",
+    "yes": "Sì",
+    "no": "No",
+    "today": "Oggi",
+    "tomorrow": "Domani",
+    "yesterday": "Ieri",
+    "this_week": "Questa settimana",
+    "this_month": "Questo mese",
+    "this_year": "Quest'anno",
+    "more": "Altri",
+    "navigation": "Navigazione"
+  },
+  "portal": {
+    "hero": {
+      "title": "Trova la tua esperienza yoga perfetta",
+      "subtitle": "Scopri i più bei studi della Svizzera",
+      "search_placeholder": "Prova 'Yin Yoga Ginevra venerdì sera'",
+      "browse_classes": "Sfoglia i corsi",
+      "discover_your": "Scopri la tua",
+      "perfect_practice": "pratica perfetta",
+      "experience_description": "Unisciti alla comunità yoga leader della Svizzera con accesso a studi premium, istruttori esperti e corsi signature in",
+      "discover_your_style": "Scopri il tuo stile",
+      "signature_experiences": "Esperienze yoga signature",
+      "signature_subtitle": "Dall'Hatha tradizionale alle pratiche aeree innovative, trova lo stile perfetto per il tuo percorso"
+    },
+    "features": {
+      "swiss_made": "Qualità svizzera",
+      "twint_payments": "TWINT & Carte",
+      "four_languages": "4 Lingue",
+      "qr_bills": "Fatture QR"
+    },
+    "hero": {
+      "title": "Trova la tua esperienza yoga perfetta",
+      "subtitle": "Svizzera #1 Piattaforma Yoga",
+      "search_placeholder": "Prova 'Yin Yoga Ginevra venerdì sera'",
+      "browse_classes": "Sfoglia i corsi",
+      "discover_your": "Scopri la tua",
+      "perfect_practice": "pratica perfetta",
+      "experience_description": "Unisciti alla comunità yoga leader della Svizzera con accesso a studi premium, istruttori esperti e corsi signature in",
+      "discover_your_style": "Scopri il tuo stile",
+      "signature_experiences": "Esperienze yoga signature",
+      "signature_subtitle": "Dall'Hatha tradizionale alle pratiche aeree innovative, trova lo stile perfetto per il tuo percorso",
+      "welcome_back": "Bentornato",
+      "hello": "Ciao",
+      "journey_continues": "Il tuo percorso di benessere continua con",
+      "upcoming_sessions": "sessioni in arrivo",
+      "and": "e",
+      "ready_to_use": "pronto all'uso",
+      "my_journey": "Il mio percorso",
+      "explore_more": "Esplora di più"
+    },
+    "navigation": {
+      "home": "Home",
+      "classes": "Corsi",
+      "studios": "Studi",
+      "instructors": "Insegnanti",
+      "retreats": "Ritiri",
+      "pricing": "Prezzi",
+      "account": "Il mio account",
+      "bookings": "Le mie prenotazioni",
+      "wallet": "Il mio portafoglio",
+      "profile": "Profilo",
+      "settings": "Impostazioni",
+      "join_community": "Unisciti",
+      "cart": "Carrello",
+      "cities": "Città",
+      "select_location": "Seleziona la tua posizione",
+      "detect_location": "Rileva posizione",
+      "outdoor": "All'aperto",
+      "online": "Online",
+      "schedule": "Programma",
+      "credits": "crediti",
+      "mobile_menu": "Menu di navigazione",
+      "mobile_menu_description": "Menu di navigazione mobile per la piattaforma YogaSwiss. Accesso alle impostazioni dell'account, esplorazione dei corsi e navigazione sulla piattaforma."
+    },
+    "booking": {
+      "book_now": "Prenota ora",
+      "add_to_cart": "Aggiungi al carrello",
+      "select_time": "Seleziona orario",
+      "available_spots": "Posti disponibili",
+      "waitlist": "Unisciti alla lista d'attesa",
+      "full": "Corso completo",
+      "booking_confirmation": "Conferma prenotazione",
+      "booking_details": "Dettagli prenotazione",
+      "cancel_booking": "Annulla prenotazione",
+      "reschedule": "Riprogramma",
+      "check_in": "Registrati"
+    },
+    "account": {
+      "dashboard": "Dashboard account",
+      "upcoming_classes": "Corsi in arrivo",
+      "class_history": "Cronologia corsi",
+      "wallet": "Portafoglio e crediti",
+      "profile_settings": "Impostazioni profilo",
+      "payment_methods": "Metodi di pagamento",
+      "notifications": "Notifiche",
+      "logout": "Disconnetti",
+      "favorites": "Preferiti"
+    },
+    "community": {
+      "title": "Unisciti a YogaSwiss",
+      "subtitle": "Fai crescere il tuo business yoga",
+      "studio_register": "Registra il tuo studio",
+      "studio_description": "Gestisci prenotazioni e pagamenti",
+      "instructor_join": "Unisciti come insegnante",
+      "instructor_description": "Insegna yoga in tutta la Svizzera"
+    },
+    "footer": {
+      "description": "La piattaforma yoga leader che ti connette con i migliori studi, istruttori e corsi.",
+      "explore": "Esplora",
+      "support": "Supporto",
+      "help_center": "Centro assistenza",
+      "contact_us": "Contattaci",
+      "contact": "Contattaci",
+      "terms_of_service": "Termini di servizio",
+      "terms": "Termini di servizio",
+      "privacy_policy": "Informativa sulla privacy",
+      "privacy": "Informativa sulla privacy",
+      "studio_management": "Gestione studio",
+      "admin_access": "Accedi alla tua dashboard admin",
+      "studio_login": "Login studio",
+      "copyright": "© 2024 YogaSwiss. Tutti i diritti riservati.",
+      "test_backend": "Testa il backend",
+      "yoga_teachers": "Insegnanti di yoga",
+      "create_profile": "Crea il tuo profilo",
+      "teachers_circle": "Circolo degli insegnanti",
+      "organise_retreats": "Organizza i tuoi ritiri",
+      "newsletter": {
+        "badge": "Newsletter",
+        "title": "Rimani aggiornato",
+        "subtitle": "Ricevi aggiornamenti sui nuovi corsi, eventi e notizie yoga",
+        "placeholder": "Il tuo indirizzo email",
+        "cta": "Iscriviti",
+        "subscribed": "Iscritto!",
+        "terms": "Accetto la politica sulla privacy"
+      },
+      "trust": {
+        "gdpr": "Conforme GDPR",
+        "secure": "Pagamenti sicuri",
+        "payments": "Varie modalità di pagamento"
+      },
+      "rights": "Tutti i diritti riservati",
+      "gdpr_compliant": "Conforme GDPR",
+      "secure_payments": "Pagamenti sicuri",
+      "payments_by": "Pagamenti tramite"
+    },
+    "categories": {
+      "discover": "Scopri",
+      "signature_experiences": "Esperienze Signature",
+      "description": "Corsi selezionati dai migliori studi della Svizzera",
+      "trending": "Tendenza",
+      "signature": "Signature",
+      "classes_available": "corsi disponibili"
+    },
+    "featured": {
+      "todays_selection": "Selezione di oggi",
+      "curated_excellence": "Curato per l'eccellenza",
+      "description": "Corsi selezionati dagli istruttori più celebrati della Svizzera e studi esclusivi",
+      "this_evening": "Stasera",
+      "explore_all": "Esplora tutti i corsi signature"
+    },
+    "stats": {
+      "members": "Membri",
+      "rating": "Valutazione",
+      "swiss_made": "Fatto in Svizzera"
+    },
+    "realtime": {
+      "live_data": "Dati in tempo reale",
+      "offline_mode": "Modalità offline",
+      "connected": "Connesso",
+      "disconnected": "Disconnesso"
+    }
+  },
+  "teachers_circle": {
+    "hero": {
+      "title": "Circolo Insegnanti",
+      "subtitle": "Connettiti, impara e cresci con gli insegnanti di yoga di tutta la Svizzera",
+      "alt": "Comunità Circolo Insegnanti",
+      "badge": {
+        "monthly": "Incontri Mensili",
+        "free": "Eventi Gratuiti",
+        "community": "Focalizzato sulla Comunità"
+      }
+    },
+    "about": {
+      "title": "Informazioni sul Circolo",
+      "description": "Il nostro Circolo Insegnanti riunisce insegnanti di yoga, pilates, danza e wellness da tutta la Svizzera. Ci incontriamo mensilmente a Losanna e Zurigo per condividere conoscenze, supportarci a vicenda e costruire una comunità di insegnamento più forte.",
+      "what_to_expect": "Cosa Aspettarsi",
+      "expect": {
+        "sharing": "Condivisione nella comunità e supporto tra pari",
+        "workshops": "Workshop formativi e masterclass",
+        "networking": "Opportunità di networking e collaborazione",
+        "resources": "Accesso a risorse didattiche esclusive"
+      }
+    },
+    "stats": {
+      "members": "Membri Attivi",
+      "events": "Eventi Quest'Anno"
+    },
+    "events": {
+      "title": "Prossimi Incontri",
+      "subtitle": "Unisciti a noi per gli incontri mensili della comunità a Losanna e Zurigo",
+      "no_events": "Nessun evento in programma in questa città."
+    },
+    "event": {
+      "monthly_gathering": "Incontro Mensile Insegnanti",
+      "february_gathering": "Incontro Insegnanti di Febbraio",
+      "description": "Connettiti con altri insegnanti di yoga, condividi esperienze e impara insieme in un ambiente comunitario di supporto.",
+      "free": "Gratuito",
+      "registered": "iscritti",
+      "waitlisted": "in lista d'attesa",
+      "register": "Iscriviti",
+      "join_waitlist": "Unisciti alla Lista d'Attesa",
+      "status": {
+        "open": "Aperto",
+        "full": "Completo",
+        "cancelled": "Annullato",
+        "completed": "Completato"
+      }
+    },
+    "venue": {
+      "access": "Entra dall'ingresso principale. Sala del circolo al 2° piano."
+    },
+    "registration": {
+      "title": "Iscrizione all'Evento",
+      "waitlist_title": "Unisciti alla Lista d'Attesa",
+      "name": "Nome Completo",
+      "name_placeholder": "Inserisci il tuo nome completo",
+      "email": "Indirizzo Email",
+      "email_placeholder": "Inserisci la tua email",
+      "phone": "Numero di Telefono (Opzionale)",
+      "phone_placeholder": "+41 XX XXX XX XX",
+      "consent_policy": "Accetto le linee guida della comunità e il codice di condotta",
+      "consent_photo": "Acconsento alle foto scattate durante questo evento (opzionale)",
+      "register": "Iscriviti",
+      "join_waitlist": "Unisciti alla Lista d'Attesa",
+      "submitting": "Iscrizione in corso..."
+    },
+    "success": {
+      "title": "Iscrizione Completata con Successo!",
+      "message": "Riceverai a breve un'email di conferma con i dettagli dell'evento e l'invito del calendario."
+    },
+    "guidelines": {
+      "title": "Linee Guida della Comunità",
+      "respect": {
+        "title": "Rispetto e Inclusione",
+        "inclusive": "Creare un ambiente inclusivo per tutti",
+        "listen": "Praticare l'ascolto attivo e l'empatia",
+        "diversity": "Celebrare la diversità negli stili di insegnamento e nei background"
+      },
+      "sharing": {
+        "title": "Condivisione della Conoscenza",
+        "open": "Condividere conoscenze ed esperienze apertamente",
+        "confidential": "Rispettare le informazioni riservate",
+        "supportive": "Fornire feedback costruttivo e di supporto"
+      },
+      "full_policy": "Per le linee guida complete della comunità e il codice di condotta, visita la nostra",
+      "policy_link": "pagina Politiche della Comunità"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "what_to_expect": {
+        "question": "Cosa dovrei aspettarmi dal Circolo Insegnanti?",
+        "answer": "Ogni incontro include condivisione nella comunità, workshop formativi, opportunità di networking e discussioni di gruppo sulle sfide e i successi dell'insegnamento."
+      },
+      "who_can_join": {
+        "question": "Chi può unirsi al Circolo Insegnanti?",
+        "answer": "Tutti gli insegnanti certificati di yoga, pilates, danza e wellness sono benvenuti, indipendentemente dal livello di esperienza o stile di insegnamento."
+      },
+      "cost": {
+        "question": "C'è un costo per partecipare?",
+        "answer": "La maggior parte degli incontri è gratuita per i membri della comunità YogaSwiss. Occasionalmente, workshop speciali potrebbero avere una piccola quota per coprire materiali o insegnanti ospiti."
+      },
+      "frequency": {
+        "question": "Con quale frequenza vi incontrate?",
+        "answer": "Ci incontriamo una volta al mese in ogni città, tipicamente il terzo mercoledì sera dalle 19:00 alle 21:00."
+      }
+    },
+    "newsletter": {
+      "title": "Rimani Connesso",
+      "description": "Ricevi aggiornamenti sui prossimi eventi, workshop e notizie della comunità.",
+      "email_placeholder": "Inserisci la tua email",
+      "subscribe": "Iscriviti"
+    },
+    "contact": {
+      "title": "Domande o Supporto?",
+      "description": "Il nostro team della comunità è qui per aiutarti con qualsiasi domanda sul Circolo Insegnanti.",
+      "email": "teachers@yogaswiss.com",
+      "chat": "Supporto Chat dal Vivo"
+    }
+  },
+  "retreat_inquiry": {
+    "hero": {
+      "title": "Organizza il Tuo Ritiro",
+      "subtitle": "Lascia che il nostro team concierge ti aiuti a creare ritiri yoga indimenticabili in Svizzera e oltre",
+      "alt": "Organizza il Tuo Ritiro"
+    },
+    "how_it_works": {
+      "title": "Come Funziona",
+      "step1_title": "1. Briefing",
+      "step1_desc": "Condividi la tua visione, preferenze e requisiti con il nostro modulo di richiesta dettagliato.",
+      "step2_title": "2. Abbinamento",
+      "step2_desc": "Ti colleghiamo con la nostra rete di fiducia di location, chef e fornitori di servizi.",
+      "step3_title": "3. Pianificazione",
+      "step3_desc": "Dalla prenotazione al marketing, gestiamo i dettagli così tu puoi concentrarti sull'insegnamento."
+    },
+    "services": {
+      "overview_title": "I Nostri Servizi",
+      "venues": "Location e Hotel",
+      "venues_desc": "Selezione curata di location perfette per ritiri",
+      "catering": "Chef e Catering",
+      "catering_desc": "Pasti sani e deliziosi su misura per il tuo ritiro",
+      "media": "Fotografia e Media",
+      "media_desc": "Creazione di contenuti professionali e supporto marketing",
+      "logistics": "Logistica e Supporto",
+      "logistics_desc": "Trasporti, assicurazioni e coordinamento completo",
+      "venue": "Location e alloggio",
+      "accommodation": "Prenotazione alloggi",
+      "chef": "Chef e pasti",
+      "transfers": "Trasporti e transfer",
+      "activities": "Attività ed escursioni",
+      "photography": "Fotografia e videografia",
+      "marketing": "Supporto marketing",
+      "bookingPage": "Pagina di prenotazione YogaSwiss",
+      "required_services": "Servizi Richiesti",
+      "support_level": "Livello di Supporto Produzione",
+      "light_guidance": "Guida Leggera",
+      "light_description": "Raccomandazioni di base per location e collegamenti con partner",
+      "full_service": "Servizio Completo",
+      "full_description": "Supporto completo per pianificazione, coordinamento, marketing ed esecuzione",
+      "amenities": "Servizi Desiderati",
+      "marketing_preferences": "Preferenze Marketing",
+      "accessibility": "Requisiti Accessibilità",
+      "accessibility_placeholder": "Eventuali esigenze o requisiti specifici di accessibilità...",
+      "family_friendly": "Ritiro adatto alle famiglie",
+      "alcohol_policy": "Politica Alcolici",
+      "alcohol_placeholder": "Seleziona politica",
+      "alcohol_none": "Senza alcol",
+      "alcohol_moderate": "Consumo moderato",
+      "alcohol_open": "Politica aperta",
+      "additional": "Requisiti Aggiuntivi",
+      "additional_placeholder": "Altri requisiti speciali, preferenze o dettagli...",
+      "attachments": "Allegati (Opzionale)",
+      "upload_prompt": "Clicca per caricare PDF, programmi o immagini di ispirazione"
+    },
+    "partners": {
+      "title": "I Nostri Partner di Fiducia",
+      "subtitle": "Lavoriamo con location, chef e fornitori di servizi attentamente selezionati in Svizzera e in Europa"
+    },
+    "steps": {
+      "basics": "Informazioni di Base",
+      "retreat_details": "Dettagli del Ritiro",
+      "services": "Servizi e Requisiti",
+      "review": "Revisiona e Invia"
+    },
+    "teacher_info": {
+      "title": "Informazioni Insegnante e Studio",
+      "name": "Il Tuo Nome",
+      "name_placeholder": "Inserisci il tuo nome completo",
+      "email": "Indirizzo Email",
+      "email_placeholder": "Inserisci la tua email",
+      "phone": "Numero di Telefono",
+      "phone_placeholder": "+41 XX XXX XX XX",
+      "brand": "Brand o Studio",
+      "brand_placeholder": "Nome studio o brand personale",
+      "city": "Città",
+      "city_placeholder": "La tua città",
+      "language": "Lingua Preferita",
+      "language_placeholder": "Seleziona lingua",
+      "profile": "Profilo YogaSwiss (Opzionale)",
+      "profile_placeholder": "Link al tuo profilo YogaSwiss"
+    },
+    "retreat_details": {
+      "title": "Dettagli del Ritiro",
+      "country": "Paese Preferito",
+      "country_placeholder": "Seleziona paese",
+      "region": "Regione Preferita",
+      "region_placeholder": "es. Alpi Svizzere, Toscana",
+      "start_date": "Data di Inizio Preferita",
+      "end_date": "Data di Fine Preferita",
+      "length": "Durata (Notti)",
+      "style": "Stile Yoga/Wellness",
+      "style_placeholder": "es. Vinyasa, Hatha, Wellness",
+      "group_min": "Dimensione Minima Gruppo",
+      "group_max": "Dimensione Massima Gruppo",
+      "room_preference": "Preferenza Camera",
+      "private_rooms": "Camere private",
+      "shared_rooms": "Camere condivise",
+      "mixed_rooms": "Opzioni miste",
+      "budget_low": "Range Budget (Minimo)",
+      "budget_high": "Range Budget (Massimo)",
+      "currency": "Valuta",
+      "schedule": "Idee Programma Giornaliero",
+      "schedule_placeholder": "Descrivi il tuo programma giornaliero ideale, tipi di classi e flusso del ritiro...",
+      "dates": "Date",
+      "group_size": "Dimensione Gruppo",
+      "budget": "Budget"
+    },
+    "amenities": {
+      "pool": "Piscina o nuoto",
+      "sauna": "Sauna o spa",
+      "spa": "Strutture spa",
+      "wifi": "Accesso WiFi",
+      "meals": "Servizio pasti"
+    },
+    "marketing": {
+      "listBuilding": "Costruzione lista email",
+      "paidAds": "Supporto pubblicità a pagamento",
+      "email": "Campagne email marketing",
+      "crossPromotion": "Promozione incrociata nella rete YogaSwiss"
+    },
+    "form": {
+      "title": "Inizia la Tua Richiesta di Ritiro",
+      "step": "Passo",
+      "of": "di",
+      "submit": "Invia Richiesta",
+      "submitting": "Invio in corso..."
+    },
+    "review": {
+      "title": "Revisiona e Invia",
+      "contact": "Informazioni di Contatto",
+      "retreat_overview": "Panoramica Ritiro",
+      "consent_title": "Consenso e Privacy",
+      "consent_contact": "Acconsento ad essere contattato riguardo alla mia richiesta di ritiro e comprendo che YogaSwiss condividerà le mie informazioni con i partner rilevanti per fornire preventivi e servizi.",
+      "consent_data": "Accetto l'archiviazione e l'elaborazione dei miei dati come descritto nell'informativa sulla privacy.",
+      "newsletter": "Vorrei ricevere aggiornamenti sui consigli per la pianificazione dei ritiri e notizie della comunità YogaSwiss (opzionale).",
+      "next_steps": "Cosa succede dopo?",
+      "step1": "Esamineremo la tua richiesta entro 2 giorni lavorativi",
+      "step2": "Uno specialista di ritiri ti contatterà per discutere i dettagli",
+      "step3": "Ti metteremo in contatto con i partner pertinenti per i preventivi",
+      "step4": "Riceverai una proposta completa con le opzioni"
+    },
+    "success": {
+      "title": "Richiesta Inviata con Successo!",
+      "message": "Grazie per la tua richiesta di ritiro. Il nostro team esaminerà i tuoi requisiti e ti contatterà entro 2 giorni lavorativi per discutere i prossimi passi. Riceverai a breve un'email di conferma.",
+      "home": "Torna Home",
+      "browse": "Sfoglia Ritiri Esistenti"
+    },
+    "pricing": {
+      "title": "Prezzi e Modelli di Coinvolgimento",
+      "commission": "Modello a Commissione",
+      "commission_desc": "Guadagniamo una percentuale delle prenotazioni finali del ritiro, allineando il nostro successo con il tuo. Le tariffe variano dall'8-15% a seconda dei servizi inclusi.",
+      "consultation": "Tariffe di Consulenza",
+      "consultation_desc": "Consulenza iniziale e guida di pianificazione di base disponibili per una tariffa fissa. Perfetto per insegnanti esperti che hanno bisogno di supporto minimo.",
+      "transparency": "Prezzi Trasparenti",
+      "transparency_desc": "Tutte le tariffe e commissioni sono chiaramente indicate nella tua proposta. Nessun costo nascosto o addebito a sorpresa."
+    },
+    "testimonials": {
+      "title": "Cosa Dicono gli Insegnanti"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "timeline": {
+        "question": "Con quanto anticipo dovrei pianificare il mio ritiro?",
+        "answer": "Consigliamo di pianificare 4-6 mesi in anticipo per i ritiri nazionali e 6-9 mesi per le destinazioni internazionali per garantire la migliore disponibilità delle location e prezzi."
+      },
+      "cost": {
+        "question": "Quali sono i costi per i servizi di pianificazione ritiri?",
+        "answer": "Le nostre tariffe di servizio variano in base al livello di supporto necessario. La guida leggera inizia dal 5% di commissione, mentre la pianificazione full-service varia dal 10-15% a seconda delle dimensioni e complessità del ritiro."
+      },
+      "insurance": {
+        "question": "Ho bisogno di un'assicurazione speciale per i ritiri?",
+        "answer": "Sì, raccomandiamo vivamente un'assicurazione di responsabilità civile e cancellazione specifica per i ritiri. Possiamo metterti in contatto con fornitori specializzati e aiutarti a navigare i requisiti."
+      },
+      "marketing": {
+        "question": "Potete aiutarmi con il marketing del mio ritiro?",
+        "answer": "Assolutamente! I nostri servizi di marketing includono la creazione di pagine di prenotazione, campagne sui social media, email marketing e promozione incrociata all'interno della comunità YogaSwiss."
+      }
+    },
+    "contact": {
+      "title": "Pronto per Iniziare la Pianificazione?",
+      "description": "Hai domande prima di inviare la tua richiesta? I nostri specialisti di ritiri sono qui per aiutare.",
+      "email": "retreats@yogaswiss.com",
+      "phone": "+41 44 XXX XX XX"
+    }
+  },
+  "errors": {
+    "network": "Errore di rete. Riprova.",
+    "unauthorized": "Non sei autorizzato a eseguire questa azione.",
+    "not_found": "La risorsa richiesta non è stata trovata.",
+    "validation": "Controlla i tuoi input.",
+    "payment": "Errore di pagamento. Riprova.",
+    "booking_failed": "Prenotazione fallita. Riprova.",
+    "class_full": "Questo corso è al completo.",
+    "insufficient_credits": "Crediti del portafoglio insufficienti.",
+    "session_expired": "La tua sessione è scaduta. Effettua nuovamente il login.",
+    "server_error": "Errore del server. Riprova più tardi."
+  },
+  "validation": {
+    "required": "Questo campo è obbligatorio",
+    "email": "Inserisci un indirizzo e-mail valido",
+    "phone": "Inserisci un numero di telefono svizzero valido",
+    "postal_code": "Inserisci un codice postale svizzero valido",
+    "password_min_length": "La password deve essere di almeno 8 caratteri",
+    "passwords_must_match": "Le password devono coincidere",
+    "invalid_date": "Inserisci una data valida",
+    "invalid_time": "Inserisci un orario valido",
+    "invalid_number": "Inserisci un numero valido",
+    "invalid_url": "Inserisci un URL valido"
+  },
+  "notifications": {
+    "booking_confirmed": "La tua prenotazione è stata confermata",
+    "booking_cancelled": "La tua prenotazione è stata annullata",
+    "payment_successful": "Pagamento elaborato con successo",
+    "class_reminder": "Promemoria: Il tuo corso inizia tra 2 ore",
+    "waitlist_spot_available": "Un posto è ora disponibile nel tuo corso in lista d'attesa",
+    "new_message": "Hai un nuovo messaggio",
+    "profile_updated": "Il tuo profilo è stato aggiornato",
+    "password_changed": "La tua password è stata modificata"
+  },
+  "time": {
+    "morning": "Mattino",
+    "afternoon": "Pomeriggio",
+    "evening": "Sera",
+    "night": "Notte",
+    "monday": "Lunedì",
+    "tuesday": "Martedì",
+    "wednesday": "Mercoledì", 
+    "thursday": "Giovedì",
+    "friday": "Venerdì",
+    "saturday": "Sabato",
+    "sunday": "Domenica",
+    "january": "Gennaio",
+    "february": "Febbraio",
+    "march": "Marzo",
+    "april": "Aprile",
+    "may": "Maggio",
+    "june": "Giugno",
+    "july": "Luglio",
+    "august": "Agosto",
+    "september": "Settembre",
+    "october": "Ottobre",
+    "november": "Novembre",
+    "december": "Dicembre"
+  }
+}

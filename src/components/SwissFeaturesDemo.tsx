@@ -1,0 +1,1 @@
+// This component has been removed as part of Swiss features cleanup

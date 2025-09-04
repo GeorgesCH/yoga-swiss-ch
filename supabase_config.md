@@ -1,0 +1,8 @@
+VITE_SUPABASE_URL=https://okvreiyhuxjosgauqaqq.supabase.co
+VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rdnJlaXlodXhqb3NnYXVxYXFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3OTMxNTUsImV4cCI6MjA3MjM2OTE1NX0.UACcNr69YBb7a39DGSBgDjI5S2Nh8KNkcowogfJ7fBI
+# Never expose service role key in the client app
+# SUPABASE_SERVICE_ROLE_KEY=server-side-only
+
+
+CLI_SUPABASE_Database_password=LvgtGKD1U4pxNG8b
+VITE_SUPABASE_PROJECT_ID=okvreiyhuxjosgauqaqq

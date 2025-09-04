@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "YogaSwiss - Schwiizer Yoga Studio Verwautig",
+    "description": "D'führendi Studio-Verwautigspattform für Schwiizer Yoga-Studios."
+  },
+  "auth": {
+    "login": {
+      "cta": "Aamäude",
+      "forgot_password": "Passwort vergässe?",
+      "sign_up": "Registriere"
+    }
+  },
+  "navigation": {
+    "overview": "Überblick",
+    "schedule": "Stundepla",
+    "customers": "Chunde",
+    "settings": "Istellige"
+  },
+  "common": {
+    "save": "Speichere",
+    "cancel": "Abbräche",
+    "back": "Zrugg",
+    "next": "Witer",
+    "loading": "Ladet...",
+    "search": "Sueche"
+  },
+  "portal": {
+    "hero": {
+      "title": "Find dis perfekte Yoga-Erläbnis",
+      "browse_classes": "Kurse aaluege"
+    }
+  }
+}

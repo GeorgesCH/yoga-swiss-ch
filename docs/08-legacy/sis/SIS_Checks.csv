@@ -1,0 +1,14 @@
+id,area,page,component,name,resource_type,resource_ref,expectation_json,severity
+1,Classes,Booking Engine,Checkout,Reserve slot RPC returns hold id,rpc,reserve_slot,"{""expects"":""hold_id"",""role"":""front_desk|studio_manager"",""timeout_ms"":1500}",critical
+2,Classes,Booking Engine,Checkout,Capture payment RPC succeeds in sandbox,rpc,capture_payment,"{""expects"":""payment_id"",""role"":""front_desk|studio_manager"",""sandbox"":true}",critical
+3,Classes,Registrations,Roster,RLS: instructor reads own class only,table,class_registrations,"{""policy"":""instructor_owns_instance"",""probe"":""instructor_user""}",critical
+4,Classes,Recurring Classes,Generator,Generate occurrences within range,rpc,generate_class_occurrences,"{""expects"":"">0_rows"",""role"":""studio_manager""}",high
+5,Finance,Swiss Payments,Invoices (QR),QR bill payload validates,rpc,generate_qr_bill,"{""expects"":""pdf_url&qr_payload_ok"",""role"":""accountant""}",critical
+6,Finance,Payments & Billing,Webhooks,Recent deliveries < 5% failures,table,webhook_deliveries,"{""expects"":""failure_rate<0.05"",""window"":""24h""}",critical
+7,Finance,Wallet Management,Eligibility,Eligibility RPC enforces rules,rpc,wallet_eligibility,"{""expects"":""eligible:true|false with reason"",""role"":""front_desk""}",high
+8,People,Payroll & Compensation,Earnings compute,Earnings match roster x rules,rpc,compute_earnings,"{""expects"":"">=0_rows & no_error"",""role"":""accountant""}",critical
+9,People,Customers,Consents,RLS: marketer sees consent only,table,consents,"{""policy"":""tenant_scoped"",""probe"":""marketer_user""}",high
+10,Settings,System Health,SIS dashboard,SIS nightly run exists,table,sis_runs,"{""expects"":""row_in_24h""}",high
+11,Settings,Security,Audit log,Audit writes from impersonation,table,audit_logs,"{""expects"":""impersonation_action_logged""}",high
+12,Marketing,Automations,Journeys,Realtime receives insert within 3s,realtime,journeys,"{""expects"":""insert_event<=3000ms""}",high
+13,Shop,Pricing & Packages,Memberships,Subscription row with status=active,table,subscriptions,"{""expects"":"">=1_active"",""role"":""studio_manager""}",high

@@ -1,0 +1,163 @@
+# YogaSwiss Platform Documentation Rules
+
+## Overview
+This project has extensive, implementation-ready documentation in the `docs/` directory that serves as the authoritative specification for building the YogaSwiss platform. The documentation is designed to be consumed by AI agents and human developers to ensure consistent, compliant implementation.
+
+## Core Documentation Structure
+
+### 1. Architecture & Requirements (`docs/01-architecture/`)
+- **ARCHITECTURE.md** - High-level system architecture, competitive analysis, and technical stack
+- **GLOBAL_REQUIREMENTS_i18n_and_Supabase_20250902_070511.md** - Mandatory Swiss localization and Supabase integration requirements
+- **yoga_swiss_platform_supabase_react_react_native_architecture_requirements_architecture.md** - Complete, implementation-ready specification
+
+### 2. Core Modules (`docs/02-core-modules/`)
+- **classes_app_creation_management_flow.md** - Complete class management specification
+- **customers_full_requirements_and_spec.md** - CRM and customer management
+- **Finance_Full_Requirements_and_Audit.md** - Financial system with Swiss compliance
+- **Marketing_Funnels_Campaigns_Leads_Full_Requirements.md** - Marketing automation and growth tools
+- **recurring_classes_management_rules.md** - Recurring class management rules
+- **registrations_full_requirements_and_spec.md** - Booking and registration system
+- **Shop_Products_Pricing_Inventory_Full_Requirements.md** - E-commerce and retail management
+
+### 3. Admin Portal (`docs/03-admin-portal/`)
+- **Admin_Shell_and_Supabase_Integration_Status.md** - Admin interface shell and integration testing
+- **Settings_Full_Requirements_and_Audit.md** - System configuration and compliance
+- **competitor_driven_feature_spec_and_task_breakdown_web_and_mobile.md** - Feature parity and implementation plan
+
+## Key Implementation Principles
+
+### Swiss-First Approach
+- **Languages**: de-CH, fr-CH (always use "tu"), it-CH, en-CH
+- **Payments**: TWINT, Swiss QR-Bill, CHF-native VAT
+- **Compliance**: GDPR + nLPD, Swiss privacy standards
+- **Localization**: Swiss number/date/currency formats
+
+### Multi-Tenant Architecture
+- **Brand → Studio → Location** hierarchy
+- **RLS (Row-Level Security)** enforced everywhere
+- **Tenant isolation** via `org_id` scoping
+- **Role-based access control** (RBAC)
+
+### Technology Stack
+- **Backend**: Supabase (Postgres 15+, RLS, Realtime, Storage)
+- **Web**: Next.js, TypeScript, Tailwind CSS v4.1
+- **Mobile**: React Native (Expo), NativeWind
+- **Payments**: Stripe + TWINT integration
+- **Analytics**: Materialized views, pg_cron jobs
+
+## Development Workflow
+
+### 1. Always Reference Documentation First
+Before implementing any feature:
+- Check the relevant module specification in `docs/02-core-modules/`
+- Review the architecture requirements in `docs/01-architecture/`
+- Consult the admin portal specs in `docs/03-admin-portal/`
+
+### 2. Follow Implementation-Ready Specs
+The documentation provides:
+- **Complete data models** with table schemas
+- **RLS policies** and security rules
+- **RPC functions** with SQL implementations
+- **UI/UX specifications** with acceptance criteria
+- **Testing requirements** and QA checklists
+
+### 3. Maintain Swiss Compliance
+- Implement **4-language support** from the start
+- Use **Swiss formatting** (CHF 1'234.50, Europe/Zurich timezone)
+- Follow **GDPR/nLPD** consent and data handling
+- Support **TWINT and QR-Bill** payment flows
+
+### 4. Build with RLS and Security
+- **Never bypass RLS** - all tables must have policies
+- **Test cross-tenant isolation** for each role
+- **Audit all changes** via events table
+- **Use RPCs** for complex business logic
+
+## Quality Assurance
+
+### Acceptance Criteria
+Each module specification includes **agent-checkable acceptance criteria**:
+- Functional requirements with measurable outcomes
+- Performance SLOs (e.g., "booking completes in < 30s")
+- Security validation (RLS, permissions, audit)
+- Localization coverage (all 4 languages)
+
+### Testing Requirements
+- **Unit tests** for business logic and RPCs
+- **Integration tests** for Supabase connectivity
+- **E2E tests** for critical user flows
+- **RLS tests** for cross-tenant security
+- **Localization tests** for all supported languages
+
+## Common Patterns
+
+### Database Design
+- All tables include `org_id`, `created_at`, `updated_at`
+- Use **UUIDs** for primary keys
+- Implement **soft deletes** where appropriate
+- **Partition large tables** (occurrences, events) by month
+
+### API Design
+- **RESTful endpoints** with proper HTTP status codes
+- **GraphQL** for complex queries (optional)
+- **Webhooks** for real-time integrations
+- **Rate limiting** and **authentication** on all endpoints
+
+### Frontend Patterns
+- **Component-based architecture** with TypeScript
+- **Tailwind CSS v4.1** exclusively (no hard-coded CSS)
+- **Responsive design** with mobile-first approach
+- **Accessibility** (WCAG 2.2 AA compliance)
+
+## Implementation Checklist
+
+### Before Starting Any Module
+- [ ] Read the complete module specification
+- [ ] Understand the data model and relationships
+- [ ] Review RLS policies and security requirements
+- [ ] Check localization requirements (4 languages)
+- [ ] Review acceptance criteria and testing requirements
+
+### During Implementation
+- [ ] Follow the documented data model exactly
+- [ ] Implement RLS policies as specified
+- [ ] Use the provided RPC functions
+- [ ] Test cross-tenant isolation
+- [ ] Implement all 4 language variants
+- [ ] Follow Swiss formatting standards
+
+### Before Completion
+- [ ] Verify all acceptance criteria pass
+- [ ] Test RLS policies with different user roles
+- [ ] Validate localization coverage
+- [ ] Run performance tests against SLOs
+- [ ] Update SIS inventory if adding new components
+
+## Legacy Documentation
+
+The `docs/08-legacy/` directory contains:
+- **Historical specifications** for reference
+- **SIS (Supabase Integration Status)** schemas and inventories
+- **Component analysis** and cleanup summaries
+- **Migration plans** and deployment guides
+
+**Note**: Legacy docs are for reference only. Always prioritize the current specifications in `docs/01-architecture/`, `docs/02-core-modules/`, and `docs/03-admin-portal/`.
+
+## Getting Help
+
+When documentation is unclear or incomplete:
+1. **Check related modules** for similar patterns
+2. **Review the architecture** for system-wide principles
+3. **Consult the competitor spec** for industry context
+4. **Reference the SIS schemas** for technical implementation details
+
+## Remember
+- **Documentation is authoritative** - follow it precisely
+- **Swiss compliance is mandatory** - not optional
+- **Security first** - RLS and RBAC are non-negotiable
+- **Quality over speed** - meet all acceptance criteria
+- **Localization from day one** - don't add languages later
+description:
+globs:
+alwaysApply: true
+---

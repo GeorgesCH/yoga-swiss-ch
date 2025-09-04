@@ -1,0 +1,142 @@
+# Translation Guidelines for YogaSwiss Platform
+
+## Overview
+YogaSwiss is a Swiss yoga platform that serves customers across Switzerland. All translations must reflect Swiss culture, dialects, and natural language usage.
+
+## Supported Languages
+- **English (en-CH)** - Swiss English with local terminology
+- **French (fr-CH)** - Swiss French with informal tone
+- **German (de-CH)** - Swiss German with local expressions
+- **Italian (it-CH)** - Swiss Italian with regional vocabulary
+
+## Core Principles
+
+### 1. Natural Language First
+- **Never translate word-for-word**
+- **Always use human, natural expressions**
+- **Make translations sound natural to native speakers**
+- **Consider cultural context and local usage**
+
+### 2. Swiss Cultural Context
+- **Use Swiss terminology and expressions**
+- **Incorporate local place names and references**
+- **Reflect Swiss business practices and customs**
+- **Use Swiss date/time formats and currency (CHF)**
+
+## Language-Specific Rules
+
+### French (fr-CH)
+- **ALWAYS use "tu" (informal) - NEVER "vous" (formal)**
+- **Use Swiss French vocabulary and expressions**
+- **Incorporate local Swiss French terms**
+- **Examples:**
+  - ✅ "Trouve ton expérience yoga parfaite"
+  - ❌ "Trouvez votre expérience yoga parfaite"
+  - ✅ "Découvre les plus beaux studios de Suisse"
+  - ❌ "Découvrez les plus beaux studios de Suisse"
+
+### German (de-CH)
+- **Use Swiss German expressions and vocabulary**
+- **Incorporate local Swiss German terms**
+- **Use informal tone appropriate for Swiss German**
+- **Examples:**
+  - ✅ "Finde dein perfektes Yoga-Erlebnis"
+  - ✅ "Entdecke die schönsten Studios der Schweiz"
+  - ✅ "Schweizer Qualität" (not "Deutsche Qualität")
+
+### Italian (it-CH)
+- **Use Swiss Italian vocabulary and expressions**
+- **Incorporate local Swiss Italian terms**
+- **Use informal tone appropriate for Swiss Italian**
+- **Examples:**
+  - ✅ "Trova la tua esperienza yoga perfetta"
+  - ✅ "Piattaforma Yoga N°1 della Svizzera"
+  - ✅ "Qualità svizzera" (not "Qualità italiana")
+
+### English (en-CH)
+- **Use Swiss English with local terminology**
+- **Incorporate Swiss place names and references**
+- **Use British English spelling conventions**
+- **Examples:**
+  - ✅ "Switzerland's most beautiful studios"
+  - ✅ "Swiss quality and precision"
+  - ✅ "Discover your perfect practice"
+
+## Translation Categories
+
+### 1. Navigation & UI Elements
+- **Keep consistent terminology across languages**
+- **Use natural, intuitive labels**
+- **Consider local user expectations**
+
+### 2. Marketing & Content
+- **Adapt to local cultural preferences**
+- **Use Swiss-specific examples and references**
+- **Maintain brand voice across languages**
+
+### 3. Business & Technical Terms
+- **Use local business terminology**
+- **Adapt to Swiss business practices**
+- **Consider local payment methods (TWINT, QR bills)**
+
+## Quality Standards
+
+### 1. Cultural Accuracy
+- **Verify cultural appropriateness**
+- **Use local examples and references**
+- **Avoid cultural misunderstandings**
+
+### 2. Language Fluency
+- **Read naturally to native speakers**
+- **Use appropriate register and tone**
+- **Maintain consistency across the platform**
+
+### 3. Technical Accuracy
+- **Preserve functionality and meaning**
+- **Maintain brand consistency**
+- **Ensure accessibility across languages**
+
+## Common Translation Patterns
+
+### 1. Greetings & Salutations
+- **French**: "Bonjour" (not "Bonjour à tous")
+- **German**: "Hallo" or "Grüezi" (Swiss German)
+- **Italian**: "Ciao" or "Buongiorno"
+- **English**: "Hello" or "Hi"
+
+### 2. Call-to-Action Buttons
+- **French**: "Découvrir", "Réserver", "Continuer"
+- **German**: "Entdecken", "Buchen", "Weiter"
+- **Italian**: "Scoprire", "Prenotare", "Continuare"
+- **English**: "Discover", "Book", "Continue"
+
+### 3. Error Messages
+- **French**: "Une erreur s'est produite"
+- **German**: "Ein Fehler ist aufgetreten"
+- **Italian**: "Si è verificato un errore"
+- **English**: "An error occurred"
+
+## Review Checklist
+
+Before finalizing any translation:
+
+- [ ] **Natural Language**: Does it sound natural to native speakers?
+- [ ] **Cultural Context**: Is it appropriate for Swiss users?
+- [ ] **Consistency**: Does it match other translations in the same category?
+- [ ] **Functionality**: Does it preserve the original meaning and intent?
+- [ ] **Brand Voice**: Does it maintain the YogaSwiss brand personality?
+- [ ] **Accessibility**: Is it clear and understandable for all users?
+
+## Resources
+
+- **Swiss French Dictionary**: Use Swiss French vocabulary
+- **Swiss German Resources**: Incorporate local expressions
+- **Swiss Italian References**: Use regional terminology
+- **Local Business Terms**: Adapt to Swiss business language
+
+## Remember
+**The goal is not to translate words, but to communicate meaning naturally in each language while maintaining Swiss cultural authenticity.**
+description:
+globs:
+alwaysApply: true
+---
