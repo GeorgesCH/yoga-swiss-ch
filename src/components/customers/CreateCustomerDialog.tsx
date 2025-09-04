@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMultiTenantAuth } from '../auth/MultiTenantAuthProvider';
-import { enhancedPeopleService } from '../../utils/supabase/enhanced-services';
+import { PeopleService } from '../../utils/supabase/people-service';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../ui/dialog';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -63,33 +63,35 @@ export function CreateCustomerDialog({ onClose, onCustomerCreated }: CreateCusto
     try {
       setLoading(true);
       
-      // Simulate customer creation with demo data
-      // This will be replaced with real API calls when database is ready
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-      
-      const customer = {
-        id: `customer-${Date.now()}`,
+      // Initialize service with access token
+      const service = session?.access_token 
+        ? new PeopleService(session.access_token)
+        : new PeopleService();
+
+      const { customer, error } = await service.createCustomer({
         email: formData.email.trim(),
         firstName: formData.firstName.trim(),
         lastName: formData.lastName.trim(),
-        phone: formData.phone.trim() || '',
+        phone: formData.phone.trim() || undefined,
         language: formData.language,
-        status: 'Active',
-        joinedDate: new Date().toISOString(),
-        totalSpent: 0,
-        classCount: 0,
-        walletBalance: 0,
-        tags: ['New'],
-        riskLevel: 'Low'
-      };
+        marketingConsent: formData.marketingConsent
+      });
 
-      console.log('Customer created successfully (Demo Mode):', customer);
-      toast.success('Customer created (Demo Mode)', {
-        description: `${formData.firstName} ${formData.lastName} has been created in demo mode. This will be saved to the database once the backend is connected.`
+      if (error) {
+        console.error('Error creating customer:', error);
+        toast.error('Failed to create customer', {
+          description: error
+        });
+        return;
+      }
+
+      console.log('Customer created successfully:', customer);
+      toast.success('Customer created successfully', {
+        description: `${formData.firstName} ${formData.lastName} has been added to your customer database.`
       });
 
       // Notify parent component
-      if (onCustomerCreated) {
+      if (onCustomerCreated && customer) {
         onCustomerCreated(customer);
       }
 

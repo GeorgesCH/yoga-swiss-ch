@@ -81,6 +81,7 @@ interface OrgPermissions {
 
 interface MultiTenantAuthContextType {
   user: User | null;
+  session: Session | null;
   currentOrg: Org | null;
   userOrgs: Org[];
   locations: Location[];
@@ -180,6 +181,7 @@ const DEFAULT_PERMISSIONS: Record<OrgRole, OrgPermissions> = {
 
 export function MultiTenantAuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [currentOrg, setCurrentOrg] = useState<Org | null>(null);
   const [userOrgs, setUserOrgs] = useState<Org[]>([]);
   const [locations, setLocations] = useState<Location[]>([]);
@@ -321,6 +323,7 @@ export function MultiTenantAuthProvider({ children }: { children: React.ReactNod
           console.error('[MultiTenantAuthProvider] Session check failed:', error);
         } else if (session?.user) {
           console.log('[MultiTenantAuthProvider] Found existing session, setting user');
+          setSession(session);
           const userData: User = {
             id: session.user.id,
             email: session.user.email || '',
@@ -363,11 +366,13 @@ export function MultiTenantAuthProvider({ children }: { children: React.ReactNod
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_OUT' || !session?.user) {
         setUser(null);
+        setSession(null);
         setCurrentOrg(null);
         setUserOrgs([]);
         setLocations([]);
         localStorage.removeItem('yogaswiss_current_org');
       } else if (session?.user) {
+        setSession(session);
         const userData: User = {
           id: session.user.id,
           email: session.user.email || '',
@@ -658,6 +663,7 @@ export function MultiTenantAuthProvider({ children }: { children: React.ReactNod
 
   const value: MultiTenantAuthContextType = {
     user,
+    session,
     currentOrg,
     userOrgs,
     locations,

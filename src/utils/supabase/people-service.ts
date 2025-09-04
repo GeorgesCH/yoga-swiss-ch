@@ -130,9 +130,9 @@ export class PeopleService {
     try {
       await this.ensureApiConnection();
       
-      // If API is not healthy, return empty (no mock in production)
+      // If API is not healthy, still try the call (health check might be wrong)
       if (!this.apiHealthy) {
-        return { customers: [], error: 'API service unavailable' };
+        console.log('⚠️ API health check failed, but attempting API call anyway...');
       }
       
       console.log('Fetching customers from API...');

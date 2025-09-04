@@ -200,21 +200,33 @@ app.get("/customers", async (c) => {
         return c.json({ error: 'Failed to fetch customers' }, 500);
       }
 
-      // Get additional customer data from wallets
+      // Get additional customer data from wallets (with error handling)
       const customerIds = customers?.map(c => c.user_id) || [];
-      const { data: wallets } = await supabase
-        .from('wallets')
-        .select('*')
-        .in('customer_id', customerIds)
-        .eq('org_id', orgId);
+      let wallets = [];
+      let passes = [];
+      
+      try {
+        const { data: walletsData } = await supabase
+          .from('wallets')
+          .select('*')
+          .in('customer_id', customerIds)
+          .eq('org_id', orgId);
+        wallets = walletsData || [];
+      } catch (walletError) {
+        console.log('📋 Wallets table not found, skipping wallet data');
+      }
 
-      // Get customer passes
-      const { data: passes } = await supabase
-        .from('passes')
-        .select('*')
-        .in('customer_id', customerIds)
-        .eq('org_id', orgId)
-        .eq('is_active', true);
+      try {
+        const { data: passesData } = await supabase
+          .from('passes')
+          .select('*')
+          .in('customer_id', customerIds)
+          .eq('org_id', orgId)
+          .eq('is_active', true);
+        passes = passesData || [];
+      } catch (passError) {
+        console.log('📋 Passes table not found, skipping pass data');
+      }
 
       // Combine customer data
       const enrichedCustomers = customers?.map(customer => {
